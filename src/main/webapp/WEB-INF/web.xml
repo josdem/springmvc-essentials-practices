@@ -10,7 +10,16 @@
 
 	<servlet-mapping>
 		<servlet-name>trackbox</servlet-name>
-		<url-pattern>/trackbox/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+
+  <!--
+    Deshabilita en el contenedor de Servlet el manejo de archivo de
+    bienvenida. Necesario para la compatibilidad con Servlet 3.0 y Tomcat
+    7.0
+  -->
+  <welcome-file-list>
+    <welcome-file></welcome-file>
+  </welcome-file-list>
 
 </web-app>
