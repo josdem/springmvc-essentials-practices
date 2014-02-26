@@ -1,21 +1,37 @@
-apply plugin:"java"
-apply plugin:"jetty"
-apply plugin: 'war'
-
-sourceCompatibility = 1.6
-version = '1.0'
-
-//httpPort = 8081
-
-repositories {
-  mavenCentral()
-}
-
 ext.springVersion = "4.0.0.RELEASE"
 
-dependencies {
-  compile "org.springframework:spring-context:$springVersion"
-  compile "org.springframework:spring-orm:$springVersion"
-  compile "org.springframework:spring-webmvc:$springVersion"
-  providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+subprojects {
+  apply plugin:"java"
+  sourceCompatibility = 1.6
+  version = '1.0'
+
+  repositories {
+    mavenCentral()
+  }
+}
+
+project(":repositoriesAndServices") {
+  dependencies {
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
+  }
+}
+
+project(":web") {
+  apply plugin: 'war'
+  apply plugin:"jetty"
+
+  //httpPort = 8081
+
+  jettyRun {
+    contextPath = 'trackbox'
+    reload = 'automatic'
+    scanIntervalSeconds = 10
+  }
+  dependencies {
+    compile project(":repositoriesAndServices")
+    compile "org.springframework:spring-webmvc:$springVersion"
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+  }
+
 }
