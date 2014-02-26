@@ -1,5 +1,5 @@
 **/build
-/bin
+**/bin
 .classpath
 .gradle/
 .project
@@ -11,3 +11,4 @@ out/
 classes/
 *.iml
 *.jar
+/build
