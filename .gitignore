@@ -12,3 +12,4 @@ classes/
 *.iml
 *.jar
 /build
+web/src/main/webapp/libs/
