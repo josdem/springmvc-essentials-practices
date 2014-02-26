@@ -10,3 +10,4 @@ spring-essentials-lab.iml
 out/
 classes/
 *.iml
+*.jar
