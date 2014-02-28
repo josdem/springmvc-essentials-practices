@@ -13,3 +13,4 @@ classes/
 *.jar
 /build
 web/src/main/webapp/libs/
+**/*.log
