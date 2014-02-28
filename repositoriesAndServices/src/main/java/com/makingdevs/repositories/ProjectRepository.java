@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.makingdevs.model.Project;
 
 public interface ProjectRepository extends CrudRepository<Project, Long> {
-  // Project findByCodename(String codeName);
+  Project findByCodeName(String codeName);
 }
