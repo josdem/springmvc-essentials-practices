@@ -2,15 +2,28 @@ package com.makingdevs.model;
 
 import java.util.Date;
 import java.util.List;
- 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Task {
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
   private String description;
   private TaskStatus status;
+  @Column(name="date_created")
   private Date dateCreated;
+  @Column(name="last_updated")
   private Date lastUpdated;
-   
+  @Transient
   private UserStory userStory;
+  @Transient
   private List<User> participants;
   
   public Long getId() {

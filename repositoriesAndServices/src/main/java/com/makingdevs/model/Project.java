@@ -2,16 +2,30 @@ package com.makingdevs.model;
 
 import java.util.Date;
 import java.util.List;
- 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Project {
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
   private Long id;
   private String name;
+  @Column(name="code_name")
   private String codeName;
   private String description;
+  @Column(name="date_created")
   private Date dateCreated;
+  @Column(name="last_updated")
   private Date lastUpdated;
-   
+  @Transient
   private List<UserStory> userStories;
+  @Transient
   private List<User> participants;
   
   public Long getId() {
