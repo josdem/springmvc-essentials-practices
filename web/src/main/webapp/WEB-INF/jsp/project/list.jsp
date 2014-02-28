@@ -25,7 +25,7 @@
     </c:forEach>
     </ul>
     <hr>
-    <a href="${pageContext.request.contextPath}/newProject" class="btn btn-primary">
+    <a href="${pageContext.request.contextPath}/project/new" class="btn btn-primary">
       Create a new project
     </a>
   </div>

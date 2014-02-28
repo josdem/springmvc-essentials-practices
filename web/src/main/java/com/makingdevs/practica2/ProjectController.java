@@ -1,8 +1,5 @@
 package com.makingdevs.practica2;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,18 +27,15 @@ public class ProjectController {
     return "project/list";
   }
   
-  @RequestMapping(value="/newProject",method=RequestMethod.GET)
-  public ModelAndView createNewProject() {
-    Map<String,Object> model = new HashMap<String,Object>();
-    Project project = new Project();
-    model.put("project", project);
-    return new ModelAndView("project/new", model);
+  @RequestMapping(value="/project/new",method=RequestMethod.GET)
+  public Project createNewProject() {
+    return new Project();
   }
   
   @RequestMapping(value="/saveProject",method=RequestMethod.POST)
-  public String saveProject(Project project) {
+  public ModelAndView saveProject(Project project) {
     projectService.createNewProject(project);
-    return "redirect:/project";
+    return new ModelAndView("redirect:/project");
   }
   
 }
