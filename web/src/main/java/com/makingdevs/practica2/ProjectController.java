@@ -1,4 +1,4 @@
-package com.makingdevs.practica3;
+package com.makingdevs.practica2;
 
 import java.util.HashMap;
 import java.util.Map;

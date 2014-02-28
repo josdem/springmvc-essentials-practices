@@ -1,4 +1,4 @@
-package com.makingdevs.practica2;
+package com.makingdevs.practica3;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,16 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.makingdevs.repositories.ProjectRepository;
-import com.makingdevs.services.ProjectService;
+import com.makingdevs.services.UserStoryService;
 
 @Controller
 public class UserStoryController {
 
   @Autowired
-  ProjectRepository projectRepository;
-
-  
+  UserStoryService userStoryService;
 
   @RequestMapping("/project/{codeName}/userStories")
   public String allProjects(@PathVariable("codeName") String codeName, Model model) {
