@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 @Entity
@@ -22,7 +25,8 @@ public class UserStory {
   private Date dateCreated;
   @Column(name="last_updated")
   private Date lastUpdated;
-  @Transient
+  @ManyToOne(fetch=FetchType.LAZY)
+  @JoinColumn(name="project_id")
   private Project project;
   @Transient
   private List<Task> tasks;
