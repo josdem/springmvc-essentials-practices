@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -29,7 +30,7 @@ public class UserStory {
   @ManyToOne
   @JoinColumn(name="project_id")
   private Project project;
-  @Transient
+  @OneToMany(mappedBy = "userStory")
   private List<Task> tasks;
   
   public Long getId() {
