@@ -17,22 +17,41 @@
   <div class="container">
     <form action="${pageContext.request.contextPath}/search" method="post">
       <div class="form-group">
-        <label for="name">Project code</label>
-        <input name="codeName" placeholder="Code Name" class="form-control" value="${codeName}">
+        <label for="name">User Story effort</label>
+        <!-- Hey ma! Help me to set the selected value -->
+        <select class="form-control" name="minValue">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        And
+        <select class="form-control" name="maxValue">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="name">Task description</label>
         <input name="taskDescription" placeholder="What did you write?" class="form-control" value="${taskDescription}">
       </div>
-      <button type="submit" class="btn btn-default">Search in projects</button>
+      <button type="submit" class="btn btn-primery">Search in projects</button>
     </form>
   </div>
   <hr>
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h3>Projects <small>${codeName}</small></h3>
-        
+        <h3>UserStories <small>${minValue} and ${maxValue}</small></h3>
+        <ul>
+        <c:forEach items="${userStories}" var="us">
+          <li>${us.effort} - ${us.description}</li>
+        </c:forEach>
+        </ul>
       </div>
       <div class="col-md-6">
         <h3>Tasks <small>${taskDescription}</small></h3>
