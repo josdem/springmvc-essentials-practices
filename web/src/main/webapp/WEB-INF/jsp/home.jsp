@@ -21,6 +21,8 @@
       <h2>Exercises</h2>
       <ul>
         <li><a href="${pageContext.request.contextPath}/project">ProjectController</a></li>
+        <li><a href="${pageContext.request.contextPath}/explorer">ExplorerController</a></li>
+        <li><a href="${pageContext.request.contextPath}/search">SearchController</a></li>
       </ul>
     </div>
 
