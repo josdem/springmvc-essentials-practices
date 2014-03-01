@@ -93,4 +93,11 @@ public class Project {
     this.participants = participants;
   }
 
+  @Override
+  public String toString() {
+    return "Project [id=" + id + ", name=" + name + ", codeName=" + codeName + ", description=" + description
+        + ", dateCreated=" + dateCreated + ", lastUpdated=" + lastUpdated + ", userStories=" + userStories
+        + ", participants=" + participants + "]";
+  }
+
 }

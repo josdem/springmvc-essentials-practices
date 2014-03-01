@@ -53,4 +53,10 @@ public class User {
     this.lastUpdated = lastUpdated;
   }
 
+  @Override
+  public String toString() {
+    return "User [id=" + id + ", username=" + username + ", enabled=" + enabled + ", dateCreated=" + dateCreated
+        + ", lastUpdated=" + lastUpdated + "]";
+  }
+
 }
