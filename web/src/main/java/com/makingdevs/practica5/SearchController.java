@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.makingdevs.model.Project;
 import com.makingdevs.model.Task;
+import com.makingdevs.practica4.ExplorerController;
 import com.makingdevs.repositories.ProjectRepository;
 import com.makingdevs.repositories.TaskRepository;
 
 @Controller
 @RequestMapping(value = "/search/**")
 public class SearchController {
+  
+  private Log log = LogFactory.getLog(SearchController.class);
   
   @Autowired
   ProjectRepository projectRepository;
@@ -35,7 +40,9 @@ public class SearchController {
       @RequestParam("taskDescription") String taskDescription) {
     Map<String,Object> model = new HashMap<String,Object>();
     Project project = projectRepository.findByCodeName(codeName);
+    log.debug(project);
     List<Task> tasks = taskRepository.findAllByDescriptionLike(taskDescription);
+    log.debug(tasks);
     model.put("codeName",codeName);
     model.put("taskDescription",taskDescription);
     model.put("project", project);

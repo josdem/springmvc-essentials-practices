@@ -31,11 +31,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h3>Projects <small></small></h3>
+        <h3>Projects <small>${codeName}</small></h3>
         
       </div>
       <div class="col-md-6">
-        <h3>Tasks</h3>
+        <h3>Tasks <small>${taskDescription}</small></h3>
         <ul>
         <c:forEach items="${tasks}" var="task">
           <li>${task.description}</li>
