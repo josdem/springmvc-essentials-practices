@@ -45,6 +45,7 @@ project(":web") {
   dependencies {
     compile project(":repositoriesAndServices")
     compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.apache.commons:commons-lang3:3.2.1"
     providedCompile "javax.servlet:javax.servlet-api:3.1.0"
     runtime 'jstl:jstl:1.2'
   }
