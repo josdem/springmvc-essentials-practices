@@ -24,6 +24,7 @@ public class PersistenceConfig {
     builder.addScript("classpath:/com/makingdevs/scripts/user_story.sql");
     builder.addScript("classpath:/com/makingdevs/scripts/task.sql");
     builder.addScript("classpath:/com/makingdevs/scripts/user.sql");
+    builder.addScript("classpath:/com/makingdevs/scripts/sprint.sql");
     builder.addScript("classpath:/com/makingdevs/scripts/constraints.sql");
     return builder.setType(EmbeddedDatabaseType.H2).build();
   }
