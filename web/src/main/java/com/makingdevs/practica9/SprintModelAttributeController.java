@@ -75,13 +75,6 @@ public class SprintModelAttributeController {
     binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
   }
 
-  public <E> Collection<E> makeCollection(Iterable<E> iter) {
-    Collection<E> list = new ArrayList<E>();
-    for (E item : iter) {
-      list.add(item);
-    }
-    return list;
-  }
 }
 // You must add @ComponentScan(basePackages = { "com.makingdevs.practica9" })
 // or <context:component-scan base-package="com.makingdevs.practica9"/>
