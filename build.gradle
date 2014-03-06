@@ -47,6 +47,7 @@ project(":web") {
     compile project(":repositoriesAndServices")
     compile "org.springframework:spring-webmvc:$springVersion"
     compile "org.apache.commons:commons-lang3:3.2.1"
+    compile "javax.validation:validation-api:1.1.0.Final"
     compile("org.hibernate:hibernate-validator:5.0.3.Final"){
       exclude module:'jboss-logging'
     }
