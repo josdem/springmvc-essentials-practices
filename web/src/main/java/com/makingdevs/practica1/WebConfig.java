@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.makingdevs.practica3", "com.makingdevs.practica4", "com.makingdevs.practica5",
-    "com.makingdevs.practica6" })
+    "com.makingdevs.practica6","com.makingdevs.practica8" })
 public class WebConfig extends WebMvcConfigurerAdapter {
 
   @Override

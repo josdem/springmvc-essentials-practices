@@ -23,6 +23,7 @@
         <li><a href="${pageContext.request.contextPath}/project">ProjectController</a></li>
         <li><a href="${pageContext.request.contextPath}/explorer">ExplorerController</a></li>
         <li><a href="${pageContext.request.contextPath}/search">SearchController</a></li>
+        <li><a href="${pageContext.request.contextPath}/sprint/new">SprintController</a></li>
       </ul>
     </div>
 
