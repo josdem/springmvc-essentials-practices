@@ -111,6 +111,6 @@ public class Sprint {
   public String toString() {
     return "Sprint [id=" + id + ", name=" + name + ", description=" + description + ", startDate=" + startDate
         + ", endDate=" + endDate + ", dateCreated=" + dateCreated + ", lastUpdated=" + lastUpdated + ", project="
-        + project + ", sprintBacklog=" + sprintBacklog + "]";
+        + project + "]";
   }
 }

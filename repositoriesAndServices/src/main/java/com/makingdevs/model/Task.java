@@ -77,7 +77,7 @@ public class Task {
   @Override
   public String toString() {
     return "Task [id=" + id + ", description=" + description + ", status=" + status + ", dateCreated=" + dateCreated
-        + ", lastUpdated=" + lastUpdated + ", userStory=" + userStory + ", participants=" + participants + "]";
+        + ", lastUpdated=" + lastUpdated + ", userStory=" + userStory + "]";
   }
 
 }

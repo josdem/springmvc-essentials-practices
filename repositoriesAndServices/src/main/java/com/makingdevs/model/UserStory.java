@@ -83,8 +83,7 @@ public class UserStory {
   @Override
   public String toString() {
     return "UserStory [id=" + id + ", description=" + description + ", priority=" + priority + ", effort=" + effort
-        + ", dateCreated=" + dateCreated + ", lastUpdated=" + lastUpdated + ", project=" + project + ", tasks=" + tasks
-        + "]";
+        + ", dateCreated=" + dateCreated + ", lastUpdated=" + lastUpdated + ", project=" + project + "]";
   }
 
 }
