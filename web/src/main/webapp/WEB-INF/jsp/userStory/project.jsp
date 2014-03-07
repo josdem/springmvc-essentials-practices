@@ -17,7 +17,9 @@
   <div class="container">
     <ul>
       <c:forEach items="${userStories}" var="us" >
-        <li>${us.description}</li>
+        <li>
+          <a href="${pageContext.request.contextPath}/project/${project.codeName}/userStories/${us.id}/task">${us.description}</a>
+        </li>
       </c:forEach>
     </ul>
     <hr>

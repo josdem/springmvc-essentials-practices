@@ -24,6 +24,7 @@
         <li><a href="${pageContext.request.contextPath}/explorer">ExplorerController</a></li>
         <li><a href="${pageContext.request.contextPath}/search">SearchController</a></li>
         <li><a href="${pageContext.request.contextPath}/sprint/new">SprintController</a></li>
+        <li><a href="${pageContext.request.contextPath}/fileUpload">FileUploadController</a></li>
       </ul>
     </div>
 

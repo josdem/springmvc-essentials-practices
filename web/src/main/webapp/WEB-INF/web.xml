@@ -26,7 +26,8 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>com.makingdevs.practica1.WebConfig</param-value>
     </init-param>
-
+    <multipart-config>
+    </multipart-config>
   </servlet>
 
   <servlet-mapping>
