@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,13 +14,24 @@
     <div class="container">
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1><spring:message code="welcome"/> </h1>
-        <p>You're learning SpringMVC 4 and the ways to configure it, so, you must use you actual acknowledge about Spring.</p>
-        <p><spring:theme code='css' /></p>
+        <h1>Wops, this feature is new!!!</h1>
+        <p>${message}</p>
       </div>
     </div> <!-- /container -->
-    
-    <div class="container">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-danger">
+          <c:forEach items="${ex.stackTrace}" var="trace">
+            ${trace}
+          </c:forEach>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
       <h2>Exercises</h2>
       <ul>
         <li><a href="${pageContext.request.contextPath}/project">ProjectController</a></li>
@@ -27,7 +39,6 @@
         <li><a href="${pageContext.request.contextPath}/search">SearchController</a></li>
         <li><a href="${pageContext.request.contextPath}/sprint/new">SprintController</a></li>
         <li><a href="${pageContext.request.contextPath}/fileUpload">FileUploadController</a></li>
-        <li><a href="${pageContext.request.contextPath}/error">ErrorController</a></li>
       </ul>
     </div>
 

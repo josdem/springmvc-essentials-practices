@@ -29,7 +29,8 @@ import com.makingdevs.practica12.TimeOpeningInterceptor;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.makingdevs.practica7", "com.makingdevs.practica4", "com.makingdevs.practica5",
-    "com.makingdevs.practica6", "com.makingdevs.practica9", "com.makingdevs.practica10", "com.makingdevs.practica11" })
+    "com.makingdevs.practica6", "com.makingdevs.practica9", "com.makingdevs.practica10", "com.makingdevs.practica11",
+    "com.makingdevs.practica13" })
 public class WebConfig extends WebMvcConfigurerAdapter {
 
   @Bean
@@ -48,9 +49,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     localeResolver.setDefaultLocale(new Locale("es"));
     return localeResolver;
   }
-  
+
   @Bean
-  public ThemeResolver themeResolver(){
+  public ThemeResolver themeResolver() {
     SessionThemeResolver themeResolver = new SessionThemeResolver();
     themeResolver.setDefaultThemeName("style.normal");
     return themeResolver;
