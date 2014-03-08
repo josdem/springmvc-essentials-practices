@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -5,7 +6,7 @@
 <meta name="author" content="">
 <title>. : MakingDevs - SpringMVC : .</title>
 <!-- Bootstrap core CSS -->
-<link href="${pageContext.request.contextPath}/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/static/<spring:theme code='css' />" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" rel="stylesheet">
 

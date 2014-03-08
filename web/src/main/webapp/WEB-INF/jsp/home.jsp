@@ -15,6 +15,7 @@
       <div class="jumbotron">
         <h1><spring:message code="welcome"/> </h1>
         <p>You're learning SpringMVC 4 and the ways to configure it, so, you must use you actual acknowledge about Spring.</p>
+        <p><spring:theme code='css' /></p>
       </div>
     </div> <!-- /container -->
     
