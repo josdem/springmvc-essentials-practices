@@ -1,5 +1,6 @@
 package com.makingdevs.services.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,9 @@ public class UserStoryServiceImpl implements UserStoryService {
 
   @Override
   public void createUserStory(UserStory userStory) {
-    // TODO Auto-generated method stub
-    
+    userStory.setDateCreated(new Date());
+    userStory.setLastUpdated(new Date());
+    userStoryRepository.save(userStory);
   }
 
   @Override

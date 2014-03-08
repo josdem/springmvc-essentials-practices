@@ -1,6 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,17 +16,18 @@
 
   <div class="container">
     <ul>
-      <c:forEach items="${userStories}" var="us" >
-        <li>
-          <a href="${pageContext.request.contextPath}/project/${project.codeName}/userStories/${us.id}/task">${us.description}</a>
+      <c:forEach items="${userStories}" var="us">
+        <li><a
+          href="${pageContext.request.contextPath}/project/${project.codeName}/userStories/${us.id}/task">${us.description}</a>
         </li>
       </c:forEach>
     </ul>
     <hr>
-    <a href="#" class="btn btn-primary">
-      Create a new user story
-    </a>
+    <a
+      href="${pageContext.request.contextPath}/project/${project.codeName}/userStory/new"
+      class="btn btn-primary"> Create a new user story </a>
   </div>
+
 
   <jsp:include page="../_footer.jsp" />
 
