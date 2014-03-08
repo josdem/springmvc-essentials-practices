@@ -14,3 +14,4 @@ classes/
 /build
 web/src/main/webapp/libs/
 **/*.log
+.gradletasknamecache
