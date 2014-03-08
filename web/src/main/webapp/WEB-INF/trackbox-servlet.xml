@@ -27,6 +27,11 @@
     class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
     <property name="defaultLocale" value="es" />
   </bean>
+  
+  <bean id="themeResolver"
+    class="org.springframework.web.servlet.theme.SessionThemeResolver">
+    <property name="defaultThemeName" value="style.normal" />
+  </bean>
 
   <mvc:interceptors>
     <bean class="com.makingdevs.practica12.TimeOpeningInterceptor" />
@@ -35,6 +40,12 @@
       <bean
         class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <property name="paramName" value="lang" />
+      </bean>
+    </mvc:interceptor>
+    <mvc:interceptor>
+      <mvc:mapping path="/*" />
+      <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+        <property name="paramName" value="theme" />
       </bean>
     </mvc:interceptor>
   </mvc:interceptors>
