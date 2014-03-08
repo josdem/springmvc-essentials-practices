@@ -21,6 +21,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.theme.SessionThemeResolver;
 import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -30,7 +31,7 @@ import com.makingdevs.practica12.TimeOpeningInterceptor;
 @EnableWebMvc
 @ComponentScan(basePackages = { "com.makingdevs.practica7", "com.makingdevs.practica4", "com.makingdevs.practica5",
     "com.makingdevs.practica6", "com.makingdevs.practica9", "com.makingdevs.practica10", "com.makingdevs.practica11",
-    "com.makingdevs.practica13" })
+    "com.makingdevs.practica13", "com.makingdevs.practica14" })
 public class WebConfig extends WebMvcConfigurerAdapter {
 
   @Bean
@@ -79,11 +80,19 @@ public class WebConfig extends WebMvcConfigurerAdapter {
   }
 
   @Bean
-  public ViewResolver viewResolver() {
+  public InternalResourceViewResolver internalResourceViewResolver() {
     InternalResourceViewResolver resolver = new InternalResourceViewResolver();
     resolver.setViewClass(JstlView.class);
     resolver.setPrefix("/WEB-INF/jsp/");
     resolver.setSuffix(".jsp");
+    resolver.setOrder(10);
+    return resolver;
+  }
+
+  @Bean
+  public BeanNameViewResolver beanNameViewResolver() {
+    BeanNameViewResolver resolver = new BeanNameViewResolver();
+    resolver.setOrder(0);
     return resolver;
   }
 

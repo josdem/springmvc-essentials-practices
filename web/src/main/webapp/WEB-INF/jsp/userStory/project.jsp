@@ -26,6 +26,12 @@
     <a
       href="${pageContext.request.contextPath}/project/${project.codeName}/userStory/new"
       class="btn btn-primary"> Create a new user story </a>
+    <a
+      href="${pageContext.request.contextPath}/project/${project.codeName}/userStory/exportToExcel"
+      class="btn btn-default"> Export to excel </a>  
+    <a
+      href="${pageContext.request.contextPath}/project/${project.codeName}/userStory/exportToPdf"
+      class="btn btn-default"> Export to PDF </a>
   </div>
 
 
