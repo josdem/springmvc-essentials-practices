@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +13,7 @@
     <div class="container">
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Welcome to your training!</h1>
+        <h1><spring:message code="welcome"/> </h1>
         <p>You're learning SpringMVC 4 and the ways to configure it, so, you must use you actual acknowledge about Spring.</p>
       </div>
     </div> <!-- /container -->
