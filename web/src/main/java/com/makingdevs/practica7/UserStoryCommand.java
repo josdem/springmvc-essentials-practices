@@ -17,14 +17,16 @@ public class UserStoryCommand {
   private Long id;
   
   @NotNull
-  @Size(min = 0, max = 1000)
+  @Size(min = 1, max = 1000)
   private String description;
   
   @Min(1)
   @Max(99)
+  @NotNull
   private Integer priority;
   
   @Range(min = 1, max = 5)
+  @NotNull
   private Integer effort;
   
   private Project project;

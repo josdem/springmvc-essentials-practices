@@ -12,27 +12,30 @@
 	<jsp:include page="../_menu.jsp" />
 
 	<div class="container">
-		<h1>Create a new UserStory for ${userStory.project.codeName}</h1>
+		<h1>Create a new UserStory for ${userStoryCommand.project.codeName}</h1>
 	</div>
 	<!-- /container -->
 
 	<div class="container">
-		<form:form commandName="userStory" method="post"
-			action="${pageContext.request.contextPath}/project/${userStory.project.codeName}/userStory/save">
+		<form:form commandName="userStoryCommand" method="post"
+			action="${pageContext.request.contextPath}/project/${userStoryCommand.project.codeName}/userStory/save">
 			<div class="form-group">
 				<label for="description">Description</label>
 				<form:textarea path="description" htmlEscape="true"
 					class="form-control" rows="3" />
+        <form:errors path="description" element="span"/>
 			</div>
 			<div class="form-group">
 				<label for="priority">Priority</label>
 				<form:input path="priority" htmlEscape="true" placeholder="A number..."
 					class="form-control" />
+        <form:errors path="priority" element="span"/>
 			</div>
 			<div class="form-group">
 				<label for="effort">Effort</label>
 				<form:input path="effort" htmlEscape="true"
 					placeholder="A number between 1 and 5" class="form-control" />
+        <form:errors path="effort" element="span"/>
 			</div>
 			<form:hidden path="project.id"/>
 			<button type="submit" class="btn btn-default">Create a new
