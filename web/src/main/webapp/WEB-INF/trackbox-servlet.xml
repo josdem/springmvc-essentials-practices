@@ -9,7 +9,7 @@
   <mvc:view-controller path="/" view-name="home" />
 
   <mvc:resources location="/libs/" mapping="/static/**" />
-
+  
   <bean id="jspViewResolver"
     class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass"

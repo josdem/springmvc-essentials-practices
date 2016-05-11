@@ -2,6 +2,8 @@ package com.makingdevs.practica6;
 
 import javax.validation.Valid;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ public class ProjectValidationController {
 
   @Autowired
   ProjectService projectService;
+  
+  Log log = LogFactory.getLog(getClass());
 
   @RequestMapping("/project")
   public String allProjects(Model model) {
@@ -40,6 +44,7 @@ public class ProjectValidationController {
   @RequestMapping(value = "/saveProject", method = RequestMethod.POST)
   //public ModelAndView saveProject(@Validated Project project, BindingResult binding) {
   public ModelAndView saveProject(@Valid Project project, BindingResult binding) {
+    log.debug("***************************************************************888");
     if (binding.hasErrors()) {
       ModelAndView mv = new ModelAndView("project/new");
       mv.getModel().put("project", project);
