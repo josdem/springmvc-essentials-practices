@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,7 @@ public class SprintModelAttributeController {
       return "sprint/new";
     } else {
       sprintService.createSprintForOneproject(sprintCommand.getSprint());
+      log.info("Sprint: " + ToStringBuilder.reflectionToString(sprintCommand.getSprint()));
       return "redirect:/";
     }
   }

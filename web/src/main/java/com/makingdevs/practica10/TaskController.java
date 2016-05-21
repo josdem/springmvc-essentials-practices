@@ -23,6 +23,7 @@ import com.makingdevs.model.Task;
 import com.makingdevs.model.TaskStatus;
 import com.makingdevs.model.UserStory;
 import com.makingdevs.repositories.ProjectRepository;
+import com.makingdevs.repositories.TaskRepository;
 import com.makingdevs.repositories.UserStoryRepository;
 
 @Controller
@@ -37,7 +38,10 @@ public class TaskController {
 
   @Autowired
   UserStoryRepository userStoryRepository;
-
+  
+  @Autowired
+  TaskRepository taskRepository;
+  
   @ModelAttribute
   public Project currentProject(@PathVariable("codeName") String codeName) {
     return projectRepository.findByCodeName(codeName);
@@ -54,7 +58,7 @@ public class TaskController {
   }
 
   @ModelAttribute
-  public void tasksForThisUserStory(Model model) {
+  public void tasksForThisUserStory(@PathVariable("codeName") String codeName, Model model) {
     // Hey, validate if the userStory has tasks ...
     // Hey, validate the current user story ...
     if (!model.containsAttribute("tasks")) {
@@ -77,7 +81,6 @@ public class TaskController {
 
   @RequestMapping("/saveTasks")
   public ModelAndView createTasksForThisUserStory(@ModelAttribute("project") Project project, SessionStatus status) {
-    // Hey ma!!! Let me save the list...
     status.setComplete(); // Hey look ma! I finish the current session with the objects
     return new ModelAndView("redirect:/project/" +project.getCodeName()+"/userStories");
   }

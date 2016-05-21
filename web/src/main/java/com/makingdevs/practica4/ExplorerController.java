@@ -44,7 +44,6 @@ public class ExplorerController {
 
   @RequestMapping("/logout")
   public String logout(HttpSession session) {
-    log.debug("*************************************************************");
     log.debug("\nSession:\t" + ToStringBuilder.reflectionToString(session));
     session.invalidate();
     return "helloWorld";
@@ -73,4 +72,5 @@ public class ExplorerController {
     log.debug("\nErrors:\t" + ToStringBuilder.reflectionToString(errors));
     return "helloWorld";
   }
+  
 }

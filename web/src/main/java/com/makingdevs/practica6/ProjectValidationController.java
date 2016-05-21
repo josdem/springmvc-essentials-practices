@@ -44,7 +44,6 @@ public class ProjectValidationController {
   @RequestMapping(value = "/saveProject", method = RequestMethod.POST)
   //public ModelAndView saveProject(@Validated Project project, BindingResult binding) {
   public ModelAndView saveProject(@Valid Project project, BindingResult binding) {
-    log.debug("***************************************************************888");
     if (binding.hasErrors()) {
       ModelAndView mv = new ModelAndView("project/new");
       mv.getModel().put("project", project);

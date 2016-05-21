@@ -16,45 +16,36 @@ import com.makingdevs.services.UserStoryService;
 @Controller
 public class UserStoryController {
 
-	@Autowired
-	UserStoryService userStoryService;
+  @Autowired
+  UserStoryService userStoryService;
 
-	@Autowired
-	ProjectRepository projectRepository;
+  @Autowired
+  ProjectRepository projectRepository;
+  
+  @RequestMapping("/project/{codeName}/userStories")
+  public String userStoriesForProject(@PathVariable("codeName") String codeName, Model model) {
+    List<UserStory> userStories = userStoryService.findUserStoriesByProject(codeName);
+    if (userStories.size() == 0)
+      model.addAttribute("project", projectRepository.findByCodeName(codeName));
+    else
+      model.addAttribute("project", userStories.get(0).getProject());
+    model.addAttribute("userStories", userStories);
+    return "userStory/project";
+  }
 
-	@RequestMapping("/project/{codeName}/userStories")
-	public String userStoriesForProject(
-			@PathVariable("codeName") String codeName, Model model) {
-		List<UserStory> userStories = userStoryService
-				.findUserStoriesByProject(codeName);
-		if (userStories.size() == 0)
-			model.addAttribute("project",
-					projectRepository.findByCodeName(codeName));
-		else
-			model.addAttribute("project", userStories.get(0).getProject());
-		model.addAttribute("userStories", userStories);
-		return "userStory/project";
-	}
+  @RequestMapping("/project/{codeName}/userStory/new")
+  public String createUserStory(@PathVariable("codeName") String codeName, ModelMap model) {
+    UserStory us = new UserStory();
+    us.setProject(projectRepository.findByCodeName(codeName));
+    model.addAttribute("userStory", us);
+    return "userStory/new";
+  }
 
-	@RequestMapping("/project/{codeName}/userStory/new")
-	public String createUserStory(@PathVariable("codeName") String codeName,
-			ModelMap model) {
-		UserStory us = new UserStory();
-		us.setProject(projectRepository.findByCodeName(codeName));
-		model.addAttribute("userStory", us);
-		return "userStory/new";
-	}
-
-	@RequestMapping("/project/{codeName}/userStory/save")
-	public String saveUserStory(@PathVariable("codeName") String codeName,
-			UserStory userStory) {
-		//userStory.setProject(projectRepository.findByCodeName(codeName));
-		//userStory.setDateCreated(new Date());
-		//userStory.setLastUpdated(new Date());
-		//userStoryRepository.save(userStory);
-		userStoryService.createUserStory(userStory);
-		return "redirect:/project/" + codeName + "/userStories";
-	}
+  @RequestMapping("/project/{codeName}/userStory/save")
+  public String saveUserStory(@PathVariable("codeName") String codeName, UserStory userStory) {
+    userStoryService.createUserStory(userStory);
+    return "redirect:/project/" + codeName + "/userStories";
+  }
 }
 
 // You must add @ComponentScan(basePackages = { "com.makingdevs.practica3" })
