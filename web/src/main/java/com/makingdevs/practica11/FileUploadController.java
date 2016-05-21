@@ -1,9 +1,7 @@
 package com.makingdevs.practica11;
 
 import java.io.IOException;
-import java.io.InputStream;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -12,9 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 
 @Controller
 public class FileUploadController {
@@ -31,10 +26,6 @@ public class FileUploadController {
     if (!file.isEmpty()) {
       log.debug("Retrieving bytes...");
       byte[] bytes = file.getBytes();
-      InputStream inputStream = new ByteArrayInputStream(file.getBytes());
-      File tempFile = File.createTempFile("prefix", "sufix");
-      FileOutputStream fos = new FileOutputStream(tempFile);
-      IOUtils.copy(inputStream, fos);
       log.debug(bytes);
       return "redirect:uploadSuccess";
     }

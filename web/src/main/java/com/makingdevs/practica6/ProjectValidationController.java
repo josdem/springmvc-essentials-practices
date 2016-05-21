@@ -31,6 +31,7 @@ public class ProjectValidationController {
 
   @RequestMapping("/project")
   public String allProjects(Model model) {
+    log.debug("****************************************88");
     model.addAttribute("message", "Welcome to projects manager!");
     model.addAttribute("projects", projectRepository.findAll());
     return "project/list";
